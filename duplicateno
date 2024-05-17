@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>To find the duplicate element in the array</h3>
+    <label>Enter the array of numbers spereating by commas:</label><br>
+    <input type="text" id="input">
+    <button onclick="duplicate()">Find duplicate element</button><br><br>
+    <p>Result:</p>
+    <p id="result"></p>
+    <script>
+        function duplicate(){
+            let userArray= document.getElementById('input').value;
+            let inputArray= userArray.split(',');
+            let duplicates=[];
+            let count={};
+             //counting the elements
+            inputArray.forEach(function(item){
+                if(count[item]){
+                    count[item]++;
+                }
+                else{
+                    count[item]=1;
+                }
+            });
+               // Identify duplicates
+            for (let key in count){
+                if(count[key]>1){
+                    duplicates.push(key);
+                }
+            }
+             //displaying output
+            let result = document.getElementById('result');
+            if(duplicates.length >0){
+                result.textContent ="Duplicate elements are : "+duplicates.join(',');
+            }
+            else{
+                result.textContent ="No duplicate elements are found";
+            }
+        }
+    </script>
+</body>
+</html>
