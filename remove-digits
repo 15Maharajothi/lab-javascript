@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter a string : </label>
+    <input type="text" id="originalString">
+    <button onclick="removedigit()">remove digits</button>
+    <p>Result:</p>
+    <p id="result"></p>
+    <script>
+        function removedigit(){
+            let text = document.getElementById('originalString').value;
+            let result =  text.replace(/\d+/g,'');
+            document.getElementById('result').textContent= result;
+        }
+    </script>
+</body>
+</html>
