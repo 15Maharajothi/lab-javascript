@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter a sequence of number: </label><br>
+    <input type="text" id="sequence"><br>
+    <button onclick="evendashes()">Enter a dashes between even numbers</button>
+    <p>Result:</p>
+    <p id="result"></p>
+    <script>
+        function evendashes(){
+            let input = document.getElementById("sequence").value;
+            let output = [];
+            for (let i=0; i<input.length ;i++){
+                output += input[i];
+                 if(i<input.length-1){
+                    let currentNum =parseInt(input[i]);
+                    let Nextnum= parseInt(input[i+1]);
+                    if(currentNum%2 ===0&& Nextnum%2 ===0 ){
+                        output= output+'-';
+                    }
+                }
+            }
+            document.getElementById('result').textContent=output;
+        }
+    </script>
+</body>
+</html>
