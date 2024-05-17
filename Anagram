@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       Enter a 1st string:<input type="text" id="str1"><br><br>
+       Enter a 2nd string:<input type="text" id="str2"><br><br>
+       <button onclick="anagram()">check Anagram</button>
+       <p>Result:</p>
+       <p id="result"></p>
+       <script>
+        function anagram(){
+            let str1= document.getElementById('str1').value.toLowerCase();
+            let str2= document.getElementById('str2').value.toLowerCase();
+            let result = document.getElementById('result');
+            str1 = str1.replace(/[^a-z]/g,' ');
+            str2 = str2.replace(/[^a-z]/g,' ');
+            if(str1.length !== str2.length){
+                 result.textContent = "Not Anagram: The length of the 2 strings are not same.";
+                 return;
+            }
+            let string1 = str1.split('').sort().join('');
+            let string2 = str2.split('').sort().join('');
+            if(string1=== string2){
+                result.textContent = "This is anagram!";
+            }
+            else{
+                result.textContent = "This is  not a anagram!";
+            }
+        }
+       </script>
+</body>
+</html>
