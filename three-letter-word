@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Three-Letter Words</title>
+</head>
+<body>
+    <label><b>Finding 3 letter words from a sentence</b></label>
+    <p>Enter a sentence:</p>
+    <input type="text" id="sentence">
+    <button onclick="threeword()">Find three-letter words</button>
+    <p>Result:</p>
+    <p id="result"></p>
+    <script>
+        function threeword(){
+            let sentence = document.getElementById('sentence').value;
+            let words = sentence.split(' ').filter(word => word.length === 3);
+            let result = document.getElementById('result');
+            if (words.length > 0) {
+                result.textContent = "Three letter words are: " + words.join(', ');
+            } else {
+                result.textContent = "There are no three-letter words in the sentence.";
+            }
+        }
+    </script>
+</body>
+</html>
